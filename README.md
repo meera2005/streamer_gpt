@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Netflix GPT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React app built with Vite and Tailwind CSS v4.
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:5173.
 
 ## Available Scripts
 
-In the project directory, you can run:
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the dev server with HMR (alias: `npm start`) |
+| `npm run build` | Build for production into `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm test` | Run the Vitest suite once |
+| `npm run test:watch` | Run Vitest in watch mode |
 
-### `npm start`
+## Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React 19** with `@vitejs/plugin-react`
+- **Vite 8** (build tool + dev server)
+- **Tailwind CSS v4** via `@tailwindcss/vite`
+- **Vitest** + Testing Library + jsdom
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tailwind Notes
 
-### `npm test`
+Tailwind v4 needs no `tailwind.config.js`. The only required pieces are:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. `src/index.css` starts with `@import "tailwindcss";`
+2. `vite.config.js` registers the `tailwindcss()` plugin
 
-### `npm run build`
+To customize the theme, add a `@theme` block in `src/index.css`:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```css
+@import "tailwindcss";
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+@theme {
+  --color-netflix: #e50914;
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Then use it as `bg-netflix`, `text-netflix`, etc.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-Create react app
+-Configue tailwind css
+-create components and utils folder
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+-FEATURES
+ -Login/Sign up page
+   -Sign in/Sign up form
+   -Once logged in, redirect to browse page
+  -Browse (only comes after authentication)
+    -Header
+    -Main movie
+       -Trailer in Background
+       -Title and description
+  -NetflixGPT
+   -Search bar
+   -Movie suggestions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-Login Page
+   - Just wrote initial components
+   - Added sign in/sign up use state
+   - Changes made to UI based on the sign in/sign up
+   
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
